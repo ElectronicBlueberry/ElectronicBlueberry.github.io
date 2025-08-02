@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/atkinson-hyperlegible-next':
+        specifier: ^5.2.4
+        version: 5.2.4
       '@nuxt/content':
         specifier: 3.6.3
         version: 3.6.3(better-sqlite3@12.2.0)(magicast@0.3.5)(vue-component-type-helpers@3.0.1)
@@ -580,6 +583,9 @@ packages:
 
   '@fastify/busboy@3.1.1':
     resolution: {integrity: sha512-5DGmA8FTdB2XbDeEwc/5ZXBl6UbBAyBOOLlPuBnZ/N1SwdH9Ii+cOX3tBROlDgcTXxjOYnLMVoKk9+FXAw0CJw==}
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.2.4':
+    resolution: {integrity: sha512-tBwEMYA1+QopQI6f/cU3V502aNx0/ewRlpCKndPn4rOOZK/gOOyxRGanxxRlJyOBkwZ9Qx9z4bM39uV1PXbmVg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -5772,6 +5778,8 @@ snapshots:
     optional: true
 
   '@fastify/busboy@3.1.1': {}
+
+  '@fontsource-variable/atkinson-hyperlegible-next@5.2.4': {}
 
   '@humanfs/core@0.19.1': {}
 
