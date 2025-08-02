@@ -23,10 +23,11 @@ const { data: page } = await useAsyncData("main", () => {
 }
 
 .title-card {
-	background-color: var(--color-purple-200);
+	background-color: var(--color-purple-300);
 	padding: var(--spacing-2) var(--spacing-8);
 	margin: var(--spacing-8) 0;
 	border-radius: 999px;
+	box-shadow: var(--shadow);
 
 	h1 {
 		font-size: 3rem;

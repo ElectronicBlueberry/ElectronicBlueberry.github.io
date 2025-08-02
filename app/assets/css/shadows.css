@@ -1,0 +1,5 @@
+html {
+    --shadow:
+        4px 8px 12px hsl(from var(--color-purple-600) h s l / 10%),
+        2px 2px 8px hsl(from var(--color-blue-600) h s l / 15%);
+}

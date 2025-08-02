@@ -1,5 +1,6 @@
 @import "colors.css";
 @import "spacing.css";
+@import "shadows.css";
 
 * {
 	margin: 0;
