@@ -7,7 +7,7 @@
 			<div class="stripe purple" />
 
 			<h2>Laila Los</h2>
-			<span> Front-End Developer </span>
+			<span> Software Developer </span>
 		</NuxtLink>
 
 		<div class="gradient" />
