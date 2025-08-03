@@ -6,7 +6,7 @@
 			<div class="stripe yellow" />
 			<div class="stripe purple" />
 
-			<h1>Laila Los</h1>
+			<h2>Laila Los</h2>
 			<span> Front-End Developer </span>
 		</NuxtLink>
 
@@ -40,7 +40,7 @@
 		color: var(--color-purple-800);
 	}
 
-	h1 {
+	h2 {
 		position: relative;
 		font-size: 3rem;
 		font-weight: 400;
@@ -112,5 +112,10 @@
 .content {
 	background-color: var(--color-grey-200);
 	flex-grow: 1;
+	padding: var(--spacing-4);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 </style>

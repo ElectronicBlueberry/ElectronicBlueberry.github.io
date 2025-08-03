@@ -5,5 +5,7 @@ const { data: page } = await useAsyncData("main", () => {
 </script>
 
 <template>
-	<ContentRenderer v-if="page" :value="page" />
+	<TextBox>
+		<ContentRenderer v-if="page" :value="page" />
+	</TextBox>
 </template>
