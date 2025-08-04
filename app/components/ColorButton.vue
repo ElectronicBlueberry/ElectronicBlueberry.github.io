@@ -103,13 +103,26 @@ const component = computed(() => {
 		}
 	}
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:active {
 		.background {
 			width: calc(100% + var(--spacing-8));
 
 			.stripe {
 				translate: 0 0;
 			}
+		}
+	}
+
+	&:focus-visible {
+		outline: none;
+
+		.background {
+			outline-width: 4px;
+			outline-offset: 4px;
+			outline-style: solid;
+			outline-color: var(--color-blue-600);
 		}
 	}
 }
