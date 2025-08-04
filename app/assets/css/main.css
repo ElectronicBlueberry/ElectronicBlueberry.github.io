@@ -18,7 +18,7 @@ html {
 	text-size-adjust: none;
 }
 
-body {
+body, button {
 	font-family: "Atkinson Hyperlegible Next Variable", sans-serif;
 	color: var(--color-purple-900);
 	line-height: 1.5;

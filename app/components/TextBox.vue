@@ -13,11 +13,12 @@
 	border-radius: var(--spacing-2);
 	box-shadow: var(--shadow);
 	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-1);
 
-	&:deep {
-		h1 {
-			margin-bottom: var(--spacing-1);
-		}
+	&:deep(h1) {
+		margin-bottom: var(--spacing-1);
 	}
 }
 </style>

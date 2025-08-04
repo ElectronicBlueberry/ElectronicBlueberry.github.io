@@ -6,6 +6,8 @@ export default defineNuxtConfig({
 	css: ["~/assets/css/main.css"],
 	postcss: {
 		plugins: {
+			"postcss-each": {},
+			"postcss-for": {},
 			"postcss-nested": {},
 		},
 	},

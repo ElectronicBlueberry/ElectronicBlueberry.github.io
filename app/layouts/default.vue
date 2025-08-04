@@ -54,11 +54,12 @@
 	}
 
 	.stripe {
-		margin: calc(var(--spacing-2) * -1) calc(var(--spacing-8) * -1);
 		display: block;
 		position: absolute;
-		height: calc(100% + 4px);
-		width: calc(100% + 4px);
+		top: -2px;
+		left: -2px;
+		bottom: -2px;
+		right: -2px;
 		translate: calc(-100% - 20px) 0;
 		transition: translate 0.6s ease-in-out;
 		box-shadow: var(--shadow);
