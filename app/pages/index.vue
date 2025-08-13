@@ -61,6 +61,8 @@ function getPostLayoutClass(post: Post) {
 				:src="post.titleImage"
 				loading="lazy"
 				width="300"
+				format="webp"
+				quality="90"
 			/>
 			<span v-if="post.summary" class="summary"> {{ post.summary }} </span>
 			<ContentRenderer
