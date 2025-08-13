@@ -19,6 +19,8 @@ const { data: posts } = await useAsyncData("posts", () => {
 			"externalName",
 			"title",
 			"titleImage",
+			"titleImageAlt",
+			"titleImageSize",
 		)
 		.order("date", "DESC")
 		.all();
@@ -59,11 +61,11 @@ function getPostLayoutClass(post: Post) {
 				v-if="post.titleImage"
 				class="title-image"
 				:src="post.titleImage"
-				loading="lazy"
-				width="300"
+				:alt="post.titleImageAlt ?? 'Decorative image without relevant content'"
+				:width="post.titleImageSize?.[0] ?? 300"
+				:height="post.titleImageSize?.[1] ?? 300"
 				format="webp"
 				quality="90"
-				placeholder
 			/>
 			<span v-if="post.summary" class="summary"> {{ post.summary }} </span>
 			<ContentRenderer

@@ -22,6 +22,8 @@ export default defineContentConfig({
 				summary: z.string().optional(),
 				title: z.string().optional(),
 				titleImage: z.string().optional(),
+				titleImageAlt: z.string().optional(),
+				titleImageSize: z.tuple([z.number(), z.number()]).optional(),
 				excerpt: z
 					.object({
 						type: z.string(),
