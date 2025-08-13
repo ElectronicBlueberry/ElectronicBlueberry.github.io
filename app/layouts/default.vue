@@ -1,14 +1,16 @@
 <template>
 	<div class="default-layout">
-		<NuxtLink class="title-card" to="/">
-			<div class="stripe blue" />
-			<div class="stripe red" />
-			<div class="stripe yellow" />
-			<div class="stripe purple" />
+		<div class="header">
+			<NuxtLink class="title-card" to="/">
+				<div class="stripe blue" />
+				<div class="stripe red" />
+				<div class="stripe yellow" />
+				<div class="stripe purple" />
 
-			<h2>Laila Los</h2>
-			<span> Software Developer </span>
-		</NuxtLink>
+				<h2>Laila Los</h2>
+				<span> Software Developer </span>
+			</NuxtLink>
+		</div>
 
 		<div class="gradient" />
 
@@ -23,6 +25,12 @@
 	display: flex;
 	flex-direction: column;
 	height: 100dvh;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .title-card {
@@ -51,6 +59,18 @@
 		font-size: 1.5rem;
 		line-height: 1;
 		font-weight: 100;
+	}
+
+	@media screen and (max-width: 400px) {
+		padding: var(--spacing-2) var(--spacing-6);
+
+		h2 {
+			font-size: 2.5rem;
+		}
+
+		span {
+			font-size: 1.2rem;
+		}
 	}
 
 	.stripe {

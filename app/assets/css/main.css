@@ -51,3 +51,7 @@ h6 {
 	outline-style: solid;
 	outline-color: var(--color-blue-600);
 }
+
+img {
+	max-width: 100%;
+}
