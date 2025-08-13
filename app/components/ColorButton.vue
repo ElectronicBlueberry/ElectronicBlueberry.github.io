@@ -44,6 +44,7 @@ const component = computed(() => {
 	align-self: center;
 	position: relative;
 	z-index: 0;
+	margin: var(--spacing-1);
 
 	color: var(--color-purple-900);
 	font-weight: 700;

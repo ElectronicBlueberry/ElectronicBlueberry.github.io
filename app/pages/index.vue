@@ -92,6 +92,7 @@ function getPostLayoutClass(post: Post) {
 
 .title-image-post {
 	display: grid;
+	grid-template-rows: auto 1fr auto;
 	grid-template-areas: "title title" "image text" "image link";
 	gap: var(--spacing-2);
 
