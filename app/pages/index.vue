@@ -63,6 +63,7 @@ function getPostLayoutClass(post: Post) {
 				width="300"
 				format="webp"
 				quality="90"
+				placeholder
 			/>
 			<span v-if="post.summary" class="summary"> {{ post.summary }} </span>
 			<ContentRenderer
