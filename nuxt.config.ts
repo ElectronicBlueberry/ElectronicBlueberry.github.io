@@ -11,4 +11,9 @@ export default defineNuxtConfig({
 			"postcss-nested": {},
 		},
 	},
+	app: {
+		head: {
+			title: "Laila Los",
+		},
+	},
 });
