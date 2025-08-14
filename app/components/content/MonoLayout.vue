@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useElementSize } from "@vueuse/core";
+import { useElementSize, watchImmediate } from "@vueuse/core";
 
 const props = defineProps<{
 	text: string;
@@ -17,7 +17,15 @@ const lineLength = computed(() =>
 	Math.floor(availableWidth.value / charWidth.value),
 );
 
-const layouted = useMonoglyph(() => props.text, lineLength);
+const layouted = ref("");
+
+onMounted(() => {
+	const output = useMonoglyph(() => props.text, lineLength);
+	watchImmediate(
+		() => output.value,
+		() => (layouted.value = output.value),
+	);
+});
 </script>
 
 <template>
