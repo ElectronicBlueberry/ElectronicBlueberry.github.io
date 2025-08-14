@@ -3,6 +3,9 @@ date: 2022-01-01
 titleImage: /images/title_images/schnipp_schnapp.png
 titleImageAlt: A hedge forming the words "Schnipp Schnapp" being cut apart by hedge trimmers. The hedge trimmers are about to cut into a cartoonish bomb. Above the text there are four characters, a ghost, a squid, a fox, and a cat.
 description: Schnipp Schnapp is a online multiplayer party game for up to eight players. In Schnipp Schnapp you need to cut a hedge into shape, so that the other players recognize it. But watch out, while you can always trim a hedge smaller, you can't grow it back once it is cut.
+titleImageSize:
+  - 200
+  - 200
 ---
 
 # Schnipp Schnapp - Online Multiplayer Party Game
