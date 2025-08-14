@@ -25,6 +25,8 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 	flex-direction: column;
 	gap: var(--spacing-2);
 	margin-top: calc(var(--spacing-2) * -1);
+	width: 100%;
+	max-width: 800px;
 }
 
 .color-button {
