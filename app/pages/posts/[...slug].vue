@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeft } from "lucide-vue-next";
+
 const slug = toSlug(useRoute().params.slug);
 
 const { data: post } = await useAsyncData(`post-${slug}`, async () => {
@@ -8,7 +10,10 @@ const { data: post } = await useAsyncData(`post-${slug}`, async () => {
 
 <template>
 	<div class="posts">
-		<ColorButton to="/">return to all posts</ColorButton>
+		<ColorButton to="/">
+			<ArrowLeft />
+			return to all posts
+		</ColorButton>
 
 		<ContentDisplay v-if="post" :content="post" />
 	</div>

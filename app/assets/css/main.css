@@ -55,3 +55,8 @@ h6 {
 img {
 	max-width: 100%;
 }
+
+.lucide {
+	margin-left: -4px;
+	margin-right: -4px;
+}
