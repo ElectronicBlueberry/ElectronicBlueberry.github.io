@@ -74,7 +74,8 @@ const { data: posts } = await useAsyncData("posts", () => {
 .index-page {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-3);
+	gap: var(--spacing-6);
+	padding-bottom: var(--spacing-4);
 }
 
 .main-info {
