@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Mail } from "lucide-vue-next";
+import { ExternalLink, Mail } from "lucide-vue-next";
 import { GitHubIcon } from "vue3-simple-icons";
 import ColorButton from "~/components/content/ColorButton.vue";
 import TextBox from "~/components/TextBox.vue";
@@ -60,6 +60,7 @@ const { data: posts } = await useAsyncData("posts", () => {
 				{{ post.description }}
 			</span>
 			<ColorButton v-if="post.externalUrl" class="link" :to="post.externalUrl">
+				<ExternalLink :size="16" />
 				Read on {{ post.externalName ?? "External Site" }}
 			</ColorButton>
 			<ColorButton v-else class="link" :to="`posts${post.path}`">
