@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Mail } from "lucide-vue-next";
-import type { UnwrapRef } from "vue";
 import { GitHubIcon } from "vue3-simple-icons";
 import ColorButton from "~/components/content/ColorButton.vue";
 import TextBox from "~/components/TextBox.vue";
@@ -25,16 +24,6 @@ const { data: posts } = await useAsyncData("posts", () => {
 		.order("date", "DESC")
 		.all();
 });
-
-type Post = NonNullable<UnwrapRef<typeof posts>>[number];
-
-function getPostLayoutClass(post: Post) {
-	if (post.title && post.titleImage) {
-		return "title-image-post";
-	}
-
-	return "";
-}
 </script>
 
 <template>
@@ -55,11 +44,7 @@ function getPostLayoutClass(post: Post) {
 
 		<DecoratedHeading is="h2" size="l" separator>Things I Do</DecoratedHeading>
 
-		<TextBox
-			v-for="post in posts"
-			:key="post.path"
-			:class="getPostLayoutClass(post)"
-		>
+		<TextBox v-for="post in posts" :key="post.path" class="title-image-post">
 			<h2 v-if="post.title" class="title">{{ post.title }}</h2>
 			<NuxtImg
 				v-if="post.titleImage"
