@@ -34,6 +34,10 @@ const props = defineProps({
 <style lang="postcss" scoped>
 div {
 	justify-self: center;
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	border-radius: var(--spacing-1);
+	margin-bottom: var(--spacing-2);
 }
 
 img {
