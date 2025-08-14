@@ -20,9 +20,16 @@ const props = defineProps<{
 
 	&:deep(> p) {
 		margin-bottom: var(--spacing-1);
+
+		&:has(img) {
+			align-self: center;
+		}
 	}
 
 	&:deep(> h2, > h3, > h4, > h5, > h6) {
+		margin-top: var(--spacing-2);
+		margin-bottom: var(--spacing-1);
+
 		a {
 			text-decoration: none;
 			color: var(--color-purple-800);

@@ -72,6 +72,9 @@ function getPostLayoutClass(post: Post) {
 			<ColorButton v-if="post.externalUrl" class="link" :to="post.externalUrl">
 				Read on {{ post.externalName ?? "External Site" }}
 			</ColorButton>
+			<ColorButton v-else class="link" :to="`posts${post.path}`">
+				Read more
+			</ColorButton>
 		</TextBox>
 	</div>
 </template>

@@ -20,10 +20,23 @@ const props = defineProps({
 </script>
 
 <template>
-	<NuxtImg
-		:src="props.src"
-		:alt="props.alt"
-		:width="props.width"
-		:height="props.height"
-	/>
+	<div>
+		<NuxtImg
+			:src="props.src"
+			:alt="props.alt"
+			:width="props.width"
+			:height="props.height"
+			format="webp"
+		/>
+	</div>
 </template>
+
+<style lang="postcss" scoped>
+div {
+	justify-self: center;
+}
+
+img {
+	display: block;
+}
+</style>
