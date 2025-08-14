@@ -19,7 +19,7 @@ export default defineContentConfig({
 				date: z.string(),
 				externalUrl: z.string().optional(),
 				externalName: z.string().optional(),
-				summary: z.string().optional(),
+				description: z.string().optional(),
 				title: z.string().optional(),
 				titleImage: z.string().optional(),
 				titleImageAlt: z.string().optional(),

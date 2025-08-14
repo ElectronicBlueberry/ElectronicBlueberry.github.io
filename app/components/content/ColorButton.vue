@@ -3,6 +3,7 @@ import { NuxtLink } from "#components";
 
 const props = defineProps<{
 	to?: string;
+	target?: "_self" | "_blank" | "_parent" | "_top";
 }>();
 
 const emit = defineEmits<{
@@ -22,6 +23,7 @@ const component = computed(() => {
 	<component
 		:is="component"
 		:to="props.to"
+		:target="props.target"
 		class="color-button"
 		@click="emit('click')"
 	>
