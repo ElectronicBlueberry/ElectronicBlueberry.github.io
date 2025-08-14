@@ -122,7 +122,8 @@ function getPostLayoutClass(post: Post) {
 
 	.link {
 		grid-area: link;
-		justify-self: center;
+		justify-self: end;
+		margin-right: var(--spacing-3);
 	}
 
 	@media screen and (max-width: 800px) {
