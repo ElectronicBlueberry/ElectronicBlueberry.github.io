@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { UnwrapRef } from "vue";
 import { GitHubIcon } from "vue3-simple-icons";
-import ColorButton from "~/components/ColorButton.vue";
+import ColorButton from "~/components/content/ColorButton.vue";
 import TextBox from "~/components/TextBox.vue";
 
 const { data: page } = await useAsyncData("main", () => {
@@ -13,8 +13,7 @@ const { data: posts } = await useAsyncData("posts", () => {
 		.select(
 			"path",
 			"date",
-			"summary",
-			"excerpt",
+			"description",
 			"externalUrl",
 			"externalName",
 			"title",
@@ -67,12 +66,9 @@ function getPostLayoutClass(post: Post) {
 				format="webp"
 				quality="90"
 			/>
-			<span v-if="post.summary" class="summary"> {{ post.summary }} </span>
-			<ContentRenderer
-				v-if="post.excerpt"
-				class="excerpt"
-				:value="post.excerpt"
-			/>
+			<span v-if="post.description" class="summary">
+				{{ post.description }}
+			</span>
 			<ColorButton v-if="post.externalUrl" class="link" :to="post.externalUrl">
 				Read on {{ post.externalName ?? "External Site" }}
 			</ColorButton>
@@ -106,8 +102,7 @@ function getPostLayoutClass(post: Post) {
 		grid-area: image;
 	}
 
-	.summary,
-	.excerpt {
+	.summary {
 		grid-area: text;
 	}
 
