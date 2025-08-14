@@ -16,6 +16,8 @@
 		"@nuxt/content": "3.6.3",
 		"@nuxt/eslint": "1.7.1",
 		"@nuxt/image": "1.11.0",
+		"@vueuse/core": "^13.6.0",
+		"hyphen": "^1.10.6",
 		"lucide-vue-next": "^0.536.0",
 		"nuxt": "^4.0.1",
 		"vue": "^3.5.18",
@@ -23,6 +25,7 @@
 		"vue3-simple-icons": "^15.6.0"
 	},
 	"devDependencies": {
+		"@types/hyphen": "^1.6.7",
 		"better-sqlite3": "12.2.0",
 		"eslint": "^9.32.0",
 		"postcss": "^8.5.6",
