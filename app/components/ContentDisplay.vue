@@ -26,7 +26,9 @@ const props = defineProps<{
 		}
 	}
 
-	&:deep(> h2, > h3, > h4, > h5, > h6) {
+	&:deep(> h2),
+	&:deep(> h3),
+	&:deep(> h4) {
 		margin-top: var(--spacing-2);
 		margin-bottom: var(--spacing-1);
 

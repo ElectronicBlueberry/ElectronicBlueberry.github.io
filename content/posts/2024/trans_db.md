@@ -27,8 +27,34 @@ Each new entry has it's coordinates extracted using the Open Street Maps API, th
 The data is user-submitted through a form, and then curated by admins.
 We have a admin-interface which offers access to the database, with an advanced [autocompleting query language](https://github.com/TransDB-de/filter-lang) I built for the project.
 
+## Design
+
+I drew all the art for the project, and made many parts of the design.
+The two parts I am proudest of are the responsive background image behind the first text, and the header art.
+
+### Responsive Background Image
+
+![cartoon style landscape with a city on the left, fields in the middle, and mountains on the right. Several location indicators are scattered across the landscape](/images/posts/trans_db/responsive_background.png)
+
+The background image behind the first text consists of two halfs, the city and the mountains.
+When the screen width decreases the images slide together and seamlessly form into a single landscape.
+
+The size between mountains and city further decreases as the screen real-estate shrinks, until they are right next to each other.
+
+### Responsive Header Art
+
+![the header of trans*db featuring a repeating pattern and a gradient](/images/posts/trans_db/header.png)
+
+We knew we wanted to include some sort of gradient and pattern into the header.
+This lead to several problems with responsiveness.
+On small screens the gradient became to sudden, while on large screens the gradient behind the pattern would repeat.
+
+I solved this by designing the pattern with bright repeating colors over the gradient, then subtracting the gradient out, and re-adding it in css.
+This allowed us to tile and repeat the background image, while responsively adjusting the gradient to any screen-size.
+On large screens, the pattern stretches out infinitely, while on small screens, it gradually transitions into a half-gradient.
+
 ## Talk
 
 2021 we held a talk at the remote chaos conference about Trans\*DB.
 [You can watch it here, starting at 10:25](https://youtu.be/Kqzg-BB9_P0?t=625).
-I used a avatar I modeled and textured in Blender for the talk.
+I used an avatar I modeled and textured in Blender for the talk.
