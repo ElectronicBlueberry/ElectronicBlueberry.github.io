@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Mail } from "lucide-vue-next";
 import type { UnwrapRef } from "vue";
 import { GitHubIcon } from "vue3-simple-icons";
 import ColorButton from "~/components/content/ColorButton.vue";
@@ -38,14 +39,18 @@ function getPostLayoutClass(post: Post) {
 
 <template>
 	<div class="index-page">
-		<TextBox>
+		<TextBox class="main-info">
 			<ContentRenderer v-if="page" :value="page" />
-			<ColorButton
-				class="github-button"
-				to="https://github.com/ElectronicBlueberry"
-			>
-				<GitHubIcon size="1rem" /> Check out my Github
-			</ColorButton>
+
+			<div class="buttons">
+				<ColorButton to="https://github.com/ElectronicBlueberry">
+					<GitHubIcon size="1rem" /> Check out my Github
+				</ColorButton>
+
+				<ColorButton to="mailto:mail@lailalos.com">
+					<Mail :size="20" /> Contact me
+				</ColorButton>
+			</div>
 		</TextBox>
 
 		<DecoratedHeading is="h2" size="l" separator>Things I Do</DecoratedHeading>
@@ -86,9 +91,15 @@ function getPostLayoutClass(post: Post) {
 	gap: var(--spacing-3);
 }
 
-.github-button {
-	margin-top: var(--spacing-2);
-	margin-bottom: var(--spacing-2);
+.main-info {
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-1);
+		margin-top: var(--spacing-2);
+		margin-bottom: var(--spacing-2);
+	}
 }
 
 .title-image-post {
