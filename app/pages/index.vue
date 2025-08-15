@@ -117,6 +117,11 @@ const { data: posts } = await useAsyncData("posts", () => {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
+		.link {
+			justify-self: center;
+			margin-right: unset;
+		}
 	}
 }
 </style>
