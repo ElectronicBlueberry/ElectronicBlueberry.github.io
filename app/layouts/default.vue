@@ -1,6 +1,12 @@
+<script setup lang="ts">
+import DynamicBackground from "~/components/pixi/DynamicBackground.vue";
+</script>
+
 <template>
 	<div class="default-layout">
 		<div class="header">
+			<DynamicBackground />
+
 			<NuxtLink class="title-card" to="/">
 				<div class="stripe blue" />
 				<div class="stripe red" />
@@ -31,6 +37,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .title-card {
