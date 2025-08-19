@@ -62,15 +62,25 @@ export async function blobParticles(app: Application) {
 
 	const blobs: Blob[] = [];
 
-	const spawnParticle = (blob: Blob) => {
+	const spawnParticle = (blob: Blob, scatter = false) => {
 		const particle = blob.particle;
 
 		const initialScale = Math.random() * 0.8 + 0.2;
 		const isAbove = Math.random() < 0.5;
 		particle.x = lerp(initialRect.x, initialRect.width, Math.random());
-		particle.y = isAbove
-			? initialRect.y - 200
-			: initialRect.y + initialRect.height + 200;
+
+		if (scatter) {
+			particle.y = isAbove
+				? initialRect.y -
+					200 +
+					lerp(0, initialRect.height / 2 + 200, Math.random())
+				: lerp(initialRect.height / 2, initialRect.height + 200, Math.random());
+		} else {
+			particle.y = isAbove
+				? initialRect.y - 200
+				: initialRect.y + initialRect.height + 200;
+		}
+
 		particle.scaleX = initialScale;
 		particle.scaleY = initialScale;
 
@@ -122,7 +132,17 @@ export async function blobParticles(app: Application) {
 	const scaleJoltRange = 0.6;
 	const scaleRange = [0.2, 0.8] as const;
 
-	let particlesToSpawn = isMobile() ? 8 : 20;
+	const initialParticleAmount = isMobile() ? 12 : 20;
+
+	for (let i = 0; i < initialParticleAmount; i++) {
+		const blob = blobs[i];
+
+		if (blob) {
+			spawnParticle(blob, true);
+		}
+	}
+
+	let particlesToSpawn = 0;
 
 	app.ticker.add((ticker) => {
 		blobParticles.position.x = (app.screen.width - initialRect.width) / 2;
