@@ -29,7 +29,7 @@ export async function blobParticles(app: Application) {
 
 	const blobParticles = new ParticleContainer({
 		dynamicProperties: {
-			scale: true,
+			vertex: true,
 			position: true,
 			color: false,
 			rotation: false,
@@ -51,8 +51,6 @@ export async function blobParticles(app: Application) {
 		speed: [number, number];
 		acceleration: [number, number];
 		jolt: [number, number];
-		scaleAcceleration: number;
-		scaleJolt: number;
 		particle: Particle;
 		aliveSince: number;
 		isActive: boolean;
@@ -65,7 +63,7 @@ export async function blobParticles(app: Application) {
 	const spawnParticle = (blob: Blob, scatter = false) => {
 		const particle = blob.particle;
 
-		const initialScale = Math.random() * 0.8 + 0.2;
+		const initialScale = Math.random() * 0.75 + 0.25;
 		const isAbove = Math.random() < 0.5;
 		particle.x = lerp(initialRect.x, initialRect.width, Math.random());
 
@@ -89,14 +87,12 @@ export async function blobParticles(app: Application) {
 		blob.jolt = [0, 0];
 		blob.acceleration = [0, 0];
 		blob.speed = [0, 0];
-		blob.scaleJolt = 0;
 
 		blob.acceleration[1] = isAbove ? Math.random() * 1 : Math.random() * -1;
 		blob.speed[1] = isAbove ? Math.random() * 10 : Math.random() * -10;
-		blob.scaleAcceleration = Math.random() * 0.1 - 0.05;
 	};
 
-	const poolSize = isMobile() ? 20 : 120;
+	const poolSize = isMobile() ? 20 : 50;
 
 	for (let i = 0; i < poolSize; i++) {
 		const particle = new Particle({
@@ -114,8 +110,6 @@ export async function blobParticles(app: Application) {
 			acceleration: [0, 0],
 			jolt: [0, 0],
 			particle,
-			scaleAcceleration: 0,
-			scaleJolt: 0,
 			aliveSince: 0,
 			isActive: false,
 		};
@@ -126,11 +120,10 @@ export async function blobParticles(app: Application) {
 	app.stage.addChild(blobParticles);
 
 	const joltChangeFrequency = 0.2;
-	const spawnFrequency = isMobile() ? 0.5 : 1.2;
+	const spawnFrequency = isMobile() ? 0.5 : 1.1;
 
-	const joltRange = [0.1, 0.4] as const;
-	const scaleJoltRange = 0.6;
-	const scaleRange = [0.2, 0.8] as const;
+	const joltRange = [0.1, 0.25] as const;
+	const accelerationDrag = 0.8;
 
 	const initialParticleAmount = isMobile() ? 12 : 20;
 
@@ -178,34 +171,25 @@ export async function blobParticles(app: Application) {
 				}
 
 				blob.acceleration[a] += blob.jolt[a] * deltaTime;
+
+				blob.acceleration[a] *= Math.pow(accelerationDrag, deltaTime);
+
 				blob.speed[a] += blob.acceleration[a] * deltaTime;
 			}
 
-			if (blob.particle.y <= initialRect.height / 2 && blob.jolt[1] < 0) {
+			if (blob.particle.y <= initialRect.y && blob.jolt[1] < 0) {
 				blob.jolt[1] *= -1;
 			}
 
-			if (blob.particle.y >= initialRect.height / 2 && blob.jolt[1] > 0) {
+			if (
+				blob.particle.y >= initialRect.y + initialRect.height &&
+				blob.jolt[1] > 0
+			) {
 				blob.jolt[1] *= -1;
 			}
 
 			blob.particle.x += blob.speed[0] * deltaTime;
 			blob.particle.y += blob.speed[1] * deltaTime;
-
-			if (randomInt(joltRandomTarget) === 0) {
-				const scaleJoltSign = Math.random() > 0.5 ? 1 : -1;
-				blob.scaleJolt = lerp(0, scaleJoltRange, Math.random()) * scaleJoltSign;
-			}
-
-			if (blob.scaleAcceleration < scaleRange[0] && blob.scaleJolt < 0) {
-				blob.scaleJolt *= -1;
-			} else if (blob.scaleAcceleration > scaleRange[1] && blob.scaleJolt > 0) {
-				blob.scaleJolt *= -1;
-			}
-
-			blob.scaleAcceleration += blob.scaleJolt * deltaTime;
-			blob.particle.scaleX += blob.scaleAcceleration * deltaTime;
-			blob.particle.scaleY += blob.scaleAcceleration * deltaTime;
 
 			blob.aliveSince += deltaTime;
 
