@@ -79,6 +79,8 @@ export async function blobParticles(app: Application) {
 				: initialRect.y + initialRect.height + 200;
 		}
 
+		particle.anchorX = 0.5;
+		particle.anchorY = 0.5;
 		particle.scaleX = initialScale;
 		particle.scaleY = initialScale;
 
