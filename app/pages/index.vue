@@ -67,6 +67,10 @@ const { data: posts } = await useAsyncData("posts", () => {
 				Read more
 			</ColorButton>
 		</TextBox>
+
+		<DecoratedHeading is="span" size="m" separator
+			>Did you see the Lavalamp?</DecoratedHeading
+		>
 	</div>
 </template>
 
