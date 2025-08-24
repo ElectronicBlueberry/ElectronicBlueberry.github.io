@@ -91,6 +91,10 @@ const { data: posts } = await useAsyncData("posts", () => {
 		margin-top: var(--spacing-2);
 		margin-bottom: var(--spacing-2);
 	}
+
+	&:deep(p:not(:last-child)) {
+		margin-bottom: var(--spacing-1);
+	}
 }
 
 .title-image-post {
