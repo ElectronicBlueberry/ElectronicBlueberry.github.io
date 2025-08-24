@@ -1,5 +1,5 @@
 ---
-date: 2024-06-01
+date: 2024-07-01
 titleImage: /images/title_images/ui_sandbox.png
 titleImageAlt: 'Yellow to turquoise gradient with black text reading: "Available Sandboxes"'
 titleImageSize:
